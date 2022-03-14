@@ -7,16 +7,16 @@
 		</head>
 <body>
 	<div class="container">
-        <form action='cadastrar' method="post">
+        <form action='cadastrar' method="post" onsubmit="return validacao(this)">
 	
             <div class="nome">
                 <label>Nome: </label>
-                <input type='text' name="nome">
+                <input type='text' name="nome" id="nome">
             </div>
     
             <div class="turma">
                 <label>Turma: </label>
-                <input type='text' name="turma">
+                <input type='text' name="turma" id="turma">
             </div>
             
             <div class="submit">
@@ -25,9 +25,26 @@
         </form>
     </div>
     
-      <button class="back">
-        	<a href="menu.html">Voltar</a>
-    	</button>
+    <button class="back">
+       <a href="menu.html">Voltar</a>
+    </button>
+    	
+    	<script type="text/javascript">
+	    	function validacao (){
+	    		if(document.getElementById("nome").value.length === 0 || document.getElementById("turma").value.length === 0 ){
+		    		alert("Por favor, preencher todos os campos");
+		    		return false
+	    		}
+	    		
+	    		else if(document.getElementById("nome").value.length === 0) {
+	    			document.getElementById("nome").focus();
+	    		}
+	    		else if(document.getElementById("turma").value.length === 0) {
+	    			document.getElementById("turma").focus();
+	    		}
+	    		
+	    	}
+    	</script>
     
 	
 </body>

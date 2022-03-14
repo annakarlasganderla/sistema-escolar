@@ -28,6 +28,9 @@ public class CadastrarAluno extends HttpServlet {
 		aluno.setNome(servletRequest.getParameter("nome"));
 		aluno.setTurma(servletRequest.getParameter("turma"));
 		
+		if(aluno.getNome() == " " || aluno.getTurma() == " ") {
+			System.out.print("Por favor, preencher todos os campos =)");
+		}
 		
 		AlunoDao alunoDao = new AlunoDao();
 		
@@ -36,6 +39,8 @@ public class CadastrarAluno extends HttpServlet {
 		} else {
 			alunoDao.criaTabelaAluno(aluno);
 		}
+		
+		
 		
 		
 		servletResponse.sendRedirect("listaDeAlunos.html");
